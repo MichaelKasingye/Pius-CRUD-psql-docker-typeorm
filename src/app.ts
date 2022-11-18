@@ -1,11 +1,41 @@
-import express from 'express';
-const app = express();
-const port = 5000;
+import 'dotenv/config'
+import express, { Response } from 'express';
+import config from 'config';
+import validateEnv from './utils/validateEnv';
+import { AppDataSource } from './utils/data-source';
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+AppDataSource.initialize()
+  .then(async () => {
+    // VALIDATE ENV
+    validateEnv();
 
-app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
-});
+    const app = express();
+
+    // MIDDLEWARE
+
+    // 1. Body parser
+
+    // 2. Logger
+
+    // 3. Cookie Parser
+
+    // 4. Cors
+
+    // ROUTES
+
+    // API CHECKER
+    app.get('/', async (_, res: Response) => {
+        res.send('Hello Universe!');
+
+    })  
+
+    // UNHANDLED ROUTE
+
+    // GLOBAL ERROR HANDLER
+
+    const port = config.get<number>('port');
+    app.listen(port);
+
+    console.log(`Server started on port: ${port}`);
+  })
+  .catch((error) => console.log(error));
