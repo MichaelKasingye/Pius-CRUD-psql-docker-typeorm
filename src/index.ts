@@ -3,7 +3,7 @@ import * as bodyParser from "body-parser"
 import { Request, Response } from "express"
 import { AppDataSource } from "./utils/data-source"
 import { Routes } from "./routes/routes"
-import { User } from "./entities/User"
+import { User } from "./entities/User.entity"
 
 AppDataSource.initialize().then(async () => {
 
