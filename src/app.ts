@@ -15,17 +15,6 @@ AppDataSource.initialize()
     const app = express();
     app.use(bodyParser.json());
 
-    // MIDDLEWARE
-
-    // Body parser
-    app.use(bodyParser.json());
-
-    // Logger
-
-    // Cookie Parser
-
-    // Cors
-
     // Register express routes from defined application routes
     Routes.forEach((route) => {
       (app as any)[route.method](
