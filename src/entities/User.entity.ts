@@ -6,7 +6,7 @@ export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({name:"lastName",nullable:false})
+    @Column({name:"firstName",nullable:false})
     firstName: string
 
     @Column({name:"lastName",nullable:false})
