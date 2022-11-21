@@ -11,6 +11,9 @@ export class Channel extends BaseEntity {
     @Column()
     name: string
 
+    @Column({nullable:true,default:null})
+    country: string
+
     @OneToOne(()=>User,user=>user.channel)
     @JoinColumn()
     user:User;

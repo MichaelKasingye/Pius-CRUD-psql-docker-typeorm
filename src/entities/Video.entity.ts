@@ -11,6 +11,9 @@ export class Video extends BaseEntity {
     @Column()
     title: string
 
+    @Column({nullable:true,default:null})
+    genre: string
+
     @ManyToOne(()=>Channel,channel=>channel.video)
     channel:Channel;
 

@@ -9,12 +9,14 @@ export async function smokeTest(connection: Connection) {
   // normally you would put that in a service layer behind a REST API
   const user = new User();
   user.age = 15;
-  user.firstName = 'Jan';
+  user.firstName = 'John';
+  user.lastName = 'Smith';
+
   await connection.manager.save(user);
   console.log('Saved a new user with id: ' + user.id);
 
   const channel = new Channel();
-  channel.name = 'productioncoder';
+  channel.name = 'Pius the Coder';
   channel.user = user;
   await connection.manager.save(channel);
   console.log('Saved a new user with id: ' + channel.id);
@@ -43,5 +45,4 @@ export async function smokeTest(connection: Connection) {
   await connection.manager.save(video2);
   console.log('Saved a new video with id: ' + video2.id);
 
-  console.log('Here you can setup and run express/koa/any other framework.');
 }

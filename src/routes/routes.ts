@@ -1,6 +1,8 @@
 import { UserController } from "../controllers/UserController"
 import { ChannelController } from "../controllers/ChannelController"
 import { TagController } from "../controllers/TagController"
+import { VideoController } from "../controllers/VideoController"
+
 
 
 export const Routes = [
@@ -83,6 +85,33 @@ export const Routes = [
     method: "delete",
     route: "/tag/:id",
     controller: TagController,
+    action: "remove"
+},
+{
+    method: "get",
+    route: "/video",
+    controller: VideoController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/video/:id",
+    controller: VideoController,
+    action: "one"
+}, {
+    method: "post",
+    route: "/video",
+    controller: VideoController,
+    action: "save"
+}, {
+    method: "put",
+    route: "/video/:id",
+    controller: VideoController,
+    action: "update"
+},
+{
+    method: "delete",
+    route: "/video/:id",
+    controller: VideoController,
     action: "remove"
 }
 ]

@@ -16,7 +16,10 @@ export class User extends BaseEntity {
     @Column({name:"age"})
     age: number
 
-    @OneToOne(()=>Channel)
+    @Column({nullable:true,default:null})
+    address: string
+
+    @OneToOne(()=>Channel,channel=>channel.user)
     channel:Channel;
 
 }
