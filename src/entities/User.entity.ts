@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne } from "typeorm"
+import { Channel } from "./Channel.entity"
 
 @Entity()
 export class User extends BaseEntity {
@@ -14,5 +15,8 @@ export class User extends BaseEntity {
 
     @Column({name:"age"})
     age: number
+
+    @OneToOne(()=>Channel)
+    channel:Channel;
 
 }

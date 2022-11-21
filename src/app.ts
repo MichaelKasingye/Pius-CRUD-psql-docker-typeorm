@@ -5,12 +5,17 @@ import config from "config";
 import validateEnv from "./utils/validateEnv";
 import { AppDataSource } from "./utils/data-source";
 import { Routes } from "./routes/routes";
+import { smokeTest } from "./smoke-test";
 
 AppDataSource.initialize()
-  .then(async () => {
+  .then(async (connection) => {
     // VALIDATE ENV
     validateEnv();
+
     console.log(`Data Source has been initialized`);
+
+    //   await connection.runMigrations();
+    //await smokeTest(connection);
 
     const app = express();
     app.use(bodyParser.json());
