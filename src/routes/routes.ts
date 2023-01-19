@@ -2,6 +2,7 @@ import { UserController } from "../controllers/UserController"
 import { ChannelController } from "../controllers/ChannelController"
 import { TagController } from "../controllers/TagController"
 import { VideoController } from "../controllers/VideoController"
+import { CountryController } from "../controllers/CountryController"
 
 
 
@@ -112,6 +113,33 @@ export const Routes = [
     method: "delete",
     route: "/video/:id",
     controller: VideoController,
+    action: "remove"
+},
+{
+    method: "get",
+    route: "/country",
+    controller: CountryController,
+    action: "all"
+}, {
+    method: "get",
+    route: "/country/:id",
+    controller: CountryController,
+    action: "one"
+}, {
+    method: "post",
+    route: "/country",
+    controller: CountryController,
+    action: "save"
+}, {
+    method: "put",
+    route: "/country/:id",
+    controller: CountryController,
+    action: "update"
+},
+{
+    method: "delete",
+    route: "/video/:id",
+    controller: CountryController,
     action: "remove"
 }
 ]

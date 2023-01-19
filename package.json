@@ -10,9 +10,13 @@
     "migrations:gen-up": "ts-node ./node_modules/typeorm/cli.js migration:generate -d ./src/utils/data-source.ts -p ./src/migrations/crudMigrations && migration:run",
     "migrations:update": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/utils/data-source.ts",
     "migrations:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/utils/data-source.ts",
+    "seed-country:create": "ts-node-dev ./node_modules/typeorm/cli.js migration:create ./src/migrations/SeedCountries -t",
+    "seed-country:run": "ts-node-dev ./node_modules/typeorm/cli.js migration:run -d ./src/utils/data-source.ts",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "create": "ts-node ./node_modules/typeorm/cli.js migration:create -n SeedUsers"
+
   },
   "author": "Pius Kevin Mafabi",
   "license": "ISC",
