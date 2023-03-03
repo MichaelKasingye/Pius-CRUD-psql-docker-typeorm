@@ -31,10 +31,8 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            cd /var/www
-            sudo chown -R ${{ secrets.SERVER_USER }}:${{ secrets.SERVER_USER }} /var/www
-            cd /var/www
-            git clone https://github.com/PiusKevin3/crud.git
-            cd crud
+            cd ~/projects/crud
+            git pull 
             npm install
             npm start
+            pm2 restart crud
