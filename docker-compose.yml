@@ -1,32 +1,32 @@
-version: '3'
+# version: '3'
 
-services:
-  app:
-    build: .
-    environment:
-      - NODE_ENV=production
-      - PORT=3000
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - PGUSER=${DB_USERNAME}
-      - PGPASSWORD=${DB_PASSWORD}
-      - PGDATABASE=${DB_DATABASE}
-      - PGHOST=db
-      - PGPORT=5432
-    ports:
-      - "3000:3000"
-    depends_on:
-      - redis
-      - db
-  redis:
-    image: redis:latest
-    ports:
-      - "6379:6379"
-  db:
-    image: postgres:latest
-    environment:
-      - POSTGRES_USER=${DB_USERNAME}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_DATABASE}
-    ports:
-      - "5432:5432"
+# services:
+#   app:
+#     build: .
+#     environment:
+#       - NODE_ENV=production
+#       - PORT=3000
+#       - REDIS_HOST=redis
+#       - REDIS_PORT=6379
+#       - PGUSER=${DB_USERNAME}
+#       - PGPASSWORD=${DB_PASSWORD}
+#       - PGDATABASE=${DB_DATABASE}
+#       - PGHOST=db
+#       - PGPORT=5432
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       - redis
+#       - db
+#   redis:
+#     image: redis:latest
+#     ports:
+#       - "6379:6379"
+#   db:
+#     image: postgres:latest
+#     environment:
+#       - POSTGRES_USER=${DB_USERNAME}
+#       - POSTGRES_PASSWORD=${DB_PASSWORD}
+#       - POSTGRES_DB=${DB_DATABASE}
+#     ports:
+#       - "5432:5432"
