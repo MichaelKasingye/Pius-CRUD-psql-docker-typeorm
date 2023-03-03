@@ -31,7 +31,7 @@ jobs:
           password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            sudo mkdir -p /var/www
+            cd /var/www
             sudo chown -R ${{ secrets.SERVER_USER }}:${{ secrets.SERVER_USER }} /var/www
             cd /var/www
             git clone https://github.com/PiusKevin3/crud.git
