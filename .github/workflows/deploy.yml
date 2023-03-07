@@ -33,19 +33,20 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # - name: GIT clone
-      #   run: |
-      #     echo "$SSH_PRIVATE_KEY"
-      #     # cd ~/projects/crud
-      #     cd ~/
-      #     echo "Home directory"
-      #     git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
-      #   shell: bash
+      - name: GIT clone
+        run: |
+          echo "$SSH_PRIVATE_KEY"
+          # cd ~/projects/crud
+          cd ~/
+          echo "Home directory"
+          git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
+          echo "git clone"
+        shell: bash
 
 
       - name: Deploy to server
-        # uses: appleboy/ssh-action@v0.1.8
-        # with:
+        uses: appleboy/ssh-action@v0.1.8
+        with:
           # run: echo "$SSH_PRIVATE_KEY"
           # username: ${{ secrets.SERVER_USER }}
           # host: ${{ secrets.SERVER_HOST }}
@@ -55,12 +56,10 @@ jobs:
           # port: ${{ secrets.SERVER_PORT }}
           # key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_PRIVATE_KEY }}
-          run: |
-          # script: |
+          script: |
             cd ~/projects/crud
-            # cd ~/
-            # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
-            # git pull 
-            # npm install
-            # npm start
-            # pm2 restart crud
+            git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
+            git pull 
+            npm install
+            npm start
+            pm2 restart crud
