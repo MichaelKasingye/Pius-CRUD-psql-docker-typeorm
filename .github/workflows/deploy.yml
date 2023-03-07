@@ -11,9 +11,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Install dependencies
-        run: npm install
+          run: npm install
       - name: Build application
-        run: npm run build
+          run: npm run build
       - name: Transfer code to server
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
