@@ -55,7 +55,8 @@ jobs:
           # port: ${{ secrets.SERVER_PORT }}
           # key: ${{ secrets.SSH_KEY }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+          run: |
+          # script: |
             cd ~/projects/crud
             # cd ~/
             # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
