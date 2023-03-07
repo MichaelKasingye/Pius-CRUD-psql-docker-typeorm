@@ -49,7 +49,6 @@ jobs:
         with:
           run: echo "$SSH_PRIVATE_KEY"
           # username: ${{ secrets.SERVER_USER }}
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-username: ${{ secrets.SERVER_USER }}
           ssh-host: ${{ secrets.SERVER_HOST }}
           # ssh-key: ${{ secrets.SSH_KEY }}
