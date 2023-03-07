@@ -1,65 +1,26 @@
-name: Deploy to Ubuntu Server
+name: Deploy to Ubuntu server
 
 on:
   push:
-    branches: ["develop"]  
-  pull_request:
-    branches: ["develop"]
+    branches: ["develop"]:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Install Node.js
-        uses: actions/setup-node@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build application
+        run: npm run build
+      - name: Transfer code to server
+        uses: easingthemes/ssh-deploy@v2.1.5
         with:
-          node-version: '16.x'
-
-      # - name: Build and test
-      #   run: |
-      #     npm install
-      #     npm test
-
-      # - name: Handle Private SSH keys
-      #   run: echo "$SSH_PRIVATE_KEY"
-      #   run: |
-      #     eval "$(ssh-agent -s)"
-      #     ssh-add - <<< "$SSH_PRIVATE_KEY"
-      #     echo "$SSH_PRIVATE_KEY"
-      #   shell: bash
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      # - name: GIT clone
-      #   run: |
-      #     echo "$SSH_PRIVATE_KEY"
-      #     # cd ~/projects/crud
-      #     cd ~/
-      #     echo "Home directory"
-      #     git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
-      #     echo "git clone"
-      #   shell: bash
-
-
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v0.1.8
-        with:
-          run: echo "$SSH_PRIVATE_KEY"
-          username: ${{ secrets.SERVER_USER }}
-          host: ${{ secrets.SERVER_HOST }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          port: ${{ secrets.SERVER_PORT }}
-          # ssh-key: ${{ secrets.SSH_KEY }}
-          # key: ${{ secrets.SSH_KEY }}
-          # key: ${{ secrets.SSH_KEY }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ~/projects/crud
-            # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
-            git pull 
-            npm install
-            npm start
-            pm2 restart crud
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-host: ${{ secrets.SERVER_HOST }}
+          ssh-username: ${{ secrets.SERVER_USER }}
+          local-folder: ./dist/
+          remote-folder: /projects/crud
+      - name: Start application
+        run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "cd ~/projects/crud && npm start"
