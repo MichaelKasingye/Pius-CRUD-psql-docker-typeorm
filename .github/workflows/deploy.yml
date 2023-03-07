@@ -28,7 +28,6 @@ jobs:
           eval "$(ssh-agent -s)"
           ssh-add - <<< "$SSH_PRIVATE_KEY"
           echo "$SSH_PRIVATE_KEY"
-          ssh-add <(echo "$SSH_PRIVATE_KEY")
         shell: bash
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
