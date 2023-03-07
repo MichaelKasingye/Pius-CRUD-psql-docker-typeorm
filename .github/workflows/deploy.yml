@@ -32,7 +32,7 @@ jobs:
           #  ssh user@example.com "cd /var/www && git pull"
         shell: bash
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.8
