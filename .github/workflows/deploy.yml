@@ -33,6 +33,14 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      - name: Git clone
+        run: echo "$SSH_PRIVATE_KEY"
+        run: |
+          cd ~/projects/crud
+          git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
+        shell: bash
+
+
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.8
         with:
