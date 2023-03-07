@@ -54,7 +54,7 @@ jobs:
           # key: ${{ secrets.SSH_KEY }}
           # port: ${{ secrets.SERVER_PORT }}
           # key: ${{ secrets.SSH_KEY }}
-          # key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/projects/crud
             # cd ~/
