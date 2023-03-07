@@ -58,7 +58,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/projects/crud
-            # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
+            git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
             git pull 
             npm install
             npm start
