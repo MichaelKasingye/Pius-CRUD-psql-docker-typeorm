@@ -45,7 +45,7 @@ jobs:
 
       - name: Deploy to server
         # uses: appleboy/ssh-action@v0.1.8
-        with:
+        # with:
           # run: echo "$SSH_PRIVATE_KEY"
           # username: ${{ secrets.SERVER_USER }}
           # host: ${{ secrets.SERVER_HOST }}
@@ -54,7 +54,7 @@ jobs:
           # key: ${{ secrets.SSH_KEY }}
           # port: ${{ secrets.SERVER_PORT }}
           # key: ${{ secrets.SSH_KEY }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # key: ${{ secrets.SSH_PRIVATE_KEY }}
           run: |
           # script: |
             cd ~/projects/crud
