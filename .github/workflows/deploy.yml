@@ -39,7 +39,7 @@ jobs:
           # cd ~/projects/crud
           cd ~/
           echo "Home directory"
-          # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
+          git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
         shell: bash
 
 
