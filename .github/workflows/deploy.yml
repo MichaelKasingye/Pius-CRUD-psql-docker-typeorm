@@ -23,6 +23,15 @@ jobs:
       #     npm install
       #     npm test
 
+      - name: Handle Private SSH keys
+        run: |
+           eval "$(ssh-agent -s)"
+           ssh-add <(echo "$SSH_PRIVATE_KEY")
+          #  ssh user@example.com "cd /var/www && git pull"
+        shell: bash
+        env:
+           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.8
         with:
@@ -30,6 +39,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASSWORD }}
           # ssh-key: ${{ secrets.SSH_KEY }}
+          # key: ${{ secrets.SSH_KEY }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
