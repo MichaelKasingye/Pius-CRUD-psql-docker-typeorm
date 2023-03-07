@@ -33,15 +33,15 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: GIT clone
-        run: |
-          echo "$SSH_PRIVATE_KEY"
-          # cd ~/projects/crud
-          cd ~/
-          echo "Home directory"
-          git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
-          echo "git clone"
-        shell: bash
+      # - name: GIT clone
+      #   run: |
+      #     echo "$SSH_PRIVATE_KEY"
+      #     # cd ~/projects/crud
+      #     cd ~/
+      #     echo "Home directory"
+      #     git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
+      #     echo "git clone"
+      #   shell: bash
 
 
       - name: Deploy to server
