@@ -44,7 +44,7 @@ jobs:
 
 
       - name: Deploy to server
-        uses: appleboy/ssh-action@v0.1.8
+        # uses: appleboy/ssh-action@v0.1.8
         with:
           # run: echo "$SSH_PRIVATE_KEY"
           # username: ${{ secrets.SERVER_USER }}
