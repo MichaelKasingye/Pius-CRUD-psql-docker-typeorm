@@ -25,14 +25,14 @@ jobs:
 
       - name: Handle Private SSH keys
         run: |
-           eval "$(ssh-agent -s)"
-           ssh-add ("$SSH_PRIVATE_KEY")
-           echo ("$SSH_PRIVATE_KEY")
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "$SSH_PRIVATE_KEY"
+          echo "$SSH_PRIVATE_KEY"
           #  ssh-add <(echo "$SSH_PRIVATE_KEY")
           #  ssh user@example.com "cd /var/www && git pull"
         shell: bash
         env:
-           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
 
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.8
