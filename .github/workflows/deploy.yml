@@ -45,17 +45,17 @@ jobs:
 
 
       - name: Deploy to server
-        uses: appleboy/ssh-action@v0.1.8
+        uses: easingthemes/ssh-deploy@v2.1.5
         with:
           run: echo "$SSH_PRIVATE_KEY"
-          username: ${{ secrets.SERVER_USER }}
-          host: ${{ secrets.SERVER_HOST }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          port: ${{ secrets.SERVER_PORT }}
+          # username: ${{ secrets.SERVER_USER }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-username: ${{ secrets.SERVER_USER }}
+          ssh-host: ${{ secrets.SERVER_HOST }}
           # ssh-key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_KEY }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/projects/crud
             # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
