@@ -37,8 +37,8 @@ jobs:
         uses: appleboy/ssh-action@v0.1.8
         with:
         run: echo "$SSH_PRIVATE_KEY"
-          # host: ${{ secrets.SERVER_HOST }}
           # username: ${{ secrets.SERVER_USER }}
+          # host: ${{ secrets.SERVER_HOST }}
           # password: ${{ secrets.SERVER_PASSWORD }}
           # ssh-key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_KEY }}
