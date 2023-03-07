@@ -50,7 +50,7 @@ jobs:
           run: echo "$SSH_PRIVATE_KEY"
           # username: ${{ secrets.SERVER_USER }}
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-host: ${{ secrets.SERVER_HOST }}
+          ssh-host: ${{ secrets.REMOTE_HOST }}
           ssh-username: ${{ secrets.SERVER_USER }}
           # ssh-key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_KEY }}
