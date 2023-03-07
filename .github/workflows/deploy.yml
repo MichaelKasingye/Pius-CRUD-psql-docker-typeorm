@@ -10,17 +10,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install dependencies
-          run: npm install
-      - name: Build application
-          run: npm run build
-      - name: Transfer code to server
-        uses: easingthemes/ssh-deploy@v2.1.5
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-host: ${{ secrets.SERVER_HOST }}
-          ssh-username: ${{ secrets.SERVER_USER }}
-          local-folder: ./dist/
-          remote-folder: /projects/crud
-      - name: Start application
-        run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "cd ~/projects/crud && npm start"
+      # - name: Install dependencies
+      #   run: npm install
+      # - name: Build application
+      #   run: npm run build
+      # - name: Transfer code to server
+      #   uses: easingthemes/ssh-deploy@v2.1.5
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     ssh-host: ${{ secrets.SERVER_HOST }}
+      #     ssh-username: ${{ secrets.SERVER_USER }}
+      #     local-folder: ./dist/
+      #     remote-folder: /projects/crud
+      # - name: Start application
+      #   run: ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} "cd ~/projects/crud && npm start"
