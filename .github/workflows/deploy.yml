@@ -49,16 +49,18 @@ jobs:
         with:
           run: echo "$SSH_PRIVATE_KEY"
           # username: ${{ secrets.SERVER_USER }}
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.SERVER_USER }}
           # key: ${{ secrets.SSH_KEY }}
           # ssh-key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_KEY }}
           script: |
+            echo "$Accessing the system"
             cd ~/projects/crud
+            echo "$In the System"
             # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
-            git pull 
-            npm install
-            npm start
-            pm2 restart crud
+            # git pull 
+            # npm install
+            # npm start
+            # pm2 restart crud
