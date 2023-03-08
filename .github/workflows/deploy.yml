@@ -24,8 +24,8 @@ jobs:
       #     npm test
 
       - name: Handle Private SSH keys
-        MY_VARIABLE: "my value ..............."
         env:
+          MY_VARIABLE: "my value ..............."
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           echo "$MY_VARIABLE"
