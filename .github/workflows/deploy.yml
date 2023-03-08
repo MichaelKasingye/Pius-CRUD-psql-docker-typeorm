@@ -33,7 +33,7 @@ jobs:
           # ssh-add <(echo ${SSH_PRIVATE_KEY})
           # ssh-add - <<< "$SSH_PRIVATE_KEY"
           echo "End .. SSH_PRIVATE_KEY"
-      #   shell: bash
+        shell: bash
 
       # - name: GIT clone
       #   run: |
