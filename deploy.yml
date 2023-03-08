@@ -34,7 +34,7 @@ jobs:
           $SSH_PRIVATE_KEY
           EOF
           echo "$SSH_PRIVATE_KEY"
-        # shell: bash
+        shell: bash
 
       # - name: GIT clone
       #   run: |
