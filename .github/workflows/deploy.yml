@@ -52,8 +52,8 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh-host: ${{ secrets.REMOTE_HOST }}
           ssh-username: ${{ secrets.SERVER_USER }}
-          # ssh-key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_KEY }}
+          # ssh-key: ${{ secrets.SSH_KEY }}
           # key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/projects/crud
