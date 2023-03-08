@@ -58,7 +58,7 @@ jobs:
           script: |
             echo "$Accessing the system"
             cd ~/projects/crud
-            echo "$In the System"
+            echo "$Here In the System"
             # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
             # git pull 
             # npm install
