@@ -59,7 +59,7 @@ jobs:
           key: ${{ secrets.SSH_PUBLIC_KEY }}
           # ssh-key: ${{ secrets.SSH_PUBLIC_KEY }}
           script: |
-            cd ~/projects/crud
+            cd /projects/crud
             # git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
             git pull 
             npm install
