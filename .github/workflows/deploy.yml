@@ -38,8 +38,8 @@ jobs:
 
       # - name: GIT clone
       #   run: |
-      #     echo "$SSH_PRIVATE_KEY"
       #     # cd ~/projects/crud
+      #     echo "$SSH_PRIVATE_KEY"
       #     cd ~/
       #     echo "Home directory"
       #     git clone git@github.com:MichaelKasingye/Pius-CRUD-psql-docker-typeorm.git
